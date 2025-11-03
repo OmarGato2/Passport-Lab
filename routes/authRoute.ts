@@ -5,16 +5,36 @@ import { forwardAuthenticated } from "../middleware/checkAuth";
 const router = express.Router();
 
 router.get("/login", forwardAuthenticated, (req, res) => {
-  res.render("login");
-})
+const messages = (req.session as any)?.messages || [];
+  if ((req.session as any)?.messages) {
+    (req.session as any).messages = [];
+  }
+  res.render("login", { messages });
+});
 
 router.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/dashboard",
     failureRedirect: "/auth/login",
-    /* FIX ME: 😭 failureMsg needed when login fails */
+    failureMessage: true,
   })
+);
+
+router.get(
+  "/github",
+  passport.authenticate("github", { scope: ["user:email"] })
+);
+
+router.get(
+  "/github/callback",
+  passport.authenticate("github", {
+    failureRedirect: "/auth/login",
+    failureMessage: true,
+  }),
+  (req, res) => {
+    res.redirect("/dashboard");
+  }
 );
 
 router.get("/logout", (req, res) => {

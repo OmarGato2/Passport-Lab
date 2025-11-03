@@ -1,31 +1,35 @@
 {
-  "name": "passportdemo",
+  "name": "passport-lab",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Passport Authentication Lab with GitHub and Local Strategy",
+  "main": "dist/app.js",
   "scripts": {
-    "start": "node server.js"
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "dev": "ts-node app.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Omar Gato",
   "license": "ISC",
   "dependencies": {
-    "@types/express-ejs-layouts": "^2.5.0",
-    "@types/passport": "^1.0.11",
-    "@types/passport-github2": "^1.2.5",
-    "@types/passport-local": "^1.0.35",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
     "express-ejs-layouts": "^2.5.0",
-    "express-layouts": "^1.0.0",
-    "express-session": "^1.17.1",
+    "express-session": "^1.18.2",
     "passport": "^0.4.1",
     "passport-github2": "^0.1.12",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "@types/express": "^4.17.16",
-    "@types/express-session": "^1.17.5",
-    "@types/node": "^18.11.18"
+    "@types/express": "^4.17.25",
+    "@types/express-ejs-layouts": "^2.5.4",
+    "@types/express-session": "^1.18.2",
+    "@types/node": "^18.19.130",
+    "@types/passport": "^1.0.17",
+    "@types/passport-github2": "^1.2.5",
+    "@types/passport-local": "^1.0.38",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }
