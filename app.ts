@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.set("view engine", "ejs");
-app.use(app.use(express.static(path.join(__dirname, "public"))));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(
   session({
     secret: SESSION_SECRET,
