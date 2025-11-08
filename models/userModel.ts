@@ -22,17 +22,17 @@ let nextId = database.length + 1;
 const userModel = {
   findOne: (email: string): User | null => {
     const user = database.find((u) => u.email === email);
-    return user | null;
+    return user ?? null;
   },
 
   findById: (id: number): User | null => {
     const user = database.find((u) => u.id === id);
-    return user | null;
+    return user ?? null;
   },
 
   findByGithubId: (githubId: string): User | null => {
     const user = database.find((u) => u.githubId === githubId);
-    return user || null;
+    return user ?? null;
   },
 
   createFromGithubProfile: (profile: {
@@ -60,4 +60,5 @@ const userModel = {
 
 };
 
-export { database, userModel, User };
+export { database, userModel };
+

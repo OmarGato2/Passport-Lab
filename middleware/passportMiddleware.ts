@@ -2,7 +2,7 @@ import { Application } from "express";
 import passport from "passport";
 import PassportConfig from "./PassportConfig";
 import localStrategy from "./passportStrategies/localStrategy";
-import passportGitHubStrategy from "./passportStrategies/githubStrategy";
+import { passportGitHubStrategy } from "./passportStrategies/githubStrategy";
 
 import dotenv from "dotenv";
 dotenv.config();
